@@ -109,11 +109,11 @@ export default function ContactForm() {
         <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-navy">
           Phone *
         </label>
-        <div className="flex gap-2">
+        <div className="relative">
           <select
             value={form.countryCode}
             onChange={(e) => updateField('countryCode', e.target.value)}
-            className={`${inputClass} w-32 shrink-0`}
+            className="absolute left-0 top-0 h-full w-24 appearance-none rounded-l-xl border border-gray-200 bg-white px-3 py-3 text-sm text-navy outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
           >
             {countryCodes.map((c) => (
               <option key={c.code} value={c.code}>
@@ -126,8 +126,9 @@ export default function ContactForm() {
             type="tel"
             value={form.phone}
             onChange={(e) => updateField('phone', e.target.value)}
-            className={inputClass}
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 pl-28 text-sm text-navy outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
             placeholder="9876543210"
+            autoComplete="tel"
           />
         </div>
         { errors.phone && <p className="mt-1 text-xs text-red-500">{ errors.phone}</p>}

@@ -24,16 +24,22 @@ export async function submitLead(formData: LeadFormData): Promise<void> {
 
   const phone = `${formData.countryCode}${formData.phone.replace(/\D/g, '')}`
 
-  await addDoc(collection(db, 'leads'), {
-    name: formData.name.trim(),
-    phone,
-    city: formData.city.trim(),
-    occupation: formData.occupation,
-    course: formData.course,
-    message: formData.message.trim(),
-    createdAt: serverTimestamp(),
-    status: 'new' as LeadStatus,
-  })
+  try {
+    const docRef = await addDoc(collection(db, 'leads'), {
+      name: formData.name.trim(),
+      phone,
+      city: formData.city.trim(),
+      occupation: formData.occupation,
+      course: formData.course,
+      message: formData.message.trim(),
+      createdAt: serverTimestamp(),
+      status: 'new' as LeadStatus,
+    })
+    console.log('Lead submitted successfully with ID:', docRef.id)
+  } catch (error) {
+    console.error('Error submitting lead to Firestore:', error)
+    throw error
+  }
 }
 
 export async function fetchLeads(): Promise<Lead[]> {
