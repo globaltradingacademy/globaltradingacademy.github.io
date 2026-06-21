@@ -128,6 +128,14 @@ npm run deploy:gh-pages
 
 This publishes `dist/` to the `gh-pages` branch.
 
+If you want to publish directly from your local machine immediately, run:
+
+```bash
+npm run deploy:gh-pages:local
+```
+
+This builds the app and pushes `dist/` to `gh-pages` right away.
+
 ## Pages
 
 | Route | Description |
