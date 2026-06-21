@@ -38,6 +38,9 @@ jobs:
           VITE_BREVO_API_KEY: ${{ secrets.VITE_BREVO_API_KEY }}
           VITE_NOTIFICATION_EMAIL: ${{ secrets.VITE_NOTIFICATION_EMAIL }}
 
+      - name: Create .nojekyll file
+        run: touch dist/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
