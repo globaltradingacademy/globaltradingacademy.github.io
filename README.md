@@ -43,6 +43,8 @@ cp env.example .env.local
 
 Fill in your Firebase web app credentials from [Firebase Console](https://console.firebase.google.com/) → Project Settings → Your apps.
 
+> Important: Do not commit `.env.local` or any real Firebase credentials to GitHub. Keep only `env.example` in source control as a template.
+
 ### 3. Run the dev server
 
 ```bash

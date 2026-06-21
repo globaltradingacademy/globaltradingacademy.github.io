@@ -11,10 +11,12 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
-export const firebaseReady = Boolean(
+const firebaseReady = Boolean(
   firebaseConfig.apiKey &&
     firebaseConfig.authDomain &&
     firebaseConfig.projectId &&
+    firebaseConfig.storageBucket &&
+    firebaseConfig.messagingSenderId &&
     firebaseConfig.appId,
 )
 
@@ -26,6 +28,10 @@ if (firebaseReady) {
   app = initializeApp(firebaseConfig)
   auth = getAuth(app)
   db = getFirestore(app)
+} else if (import.meta.env.DEV) {
+  console.warn(
+    'Firebase is not fully configured. Copy env.example to .env.local and fill in the VITE_FIREBASE_* values.',
+  )
 }
 
-export { app, auth, db }
+export { app, auth, db, firebaseReady }
