@@ -23,7 +23,7 @@ async function sendEmailNotification(leadData: LeadFormData): Promise<void> {
   const phone = `${leadData.countryCode}${leadData.phone.replace(/\D/g, '')}`
 
   const htmlContent = `
-    <h2>New Lead — National Trading Academy</h2>
+    <h2>New Lead — Global Trading Academy</h2>
     <table style="border-collapse:collapse;width:100%;max-width:600px;">
       <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #eee;">${leadData.name}</td></tr>
       <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #eee;">${phone}</td></tr>
@@ -43,7 +43,7 @@ async function sendEmailNotification(leadData: LeadFormData): Promise<void> {
       },
       body: JSON.stringify({
         sender: {
-          name: 'National Trading Academy',
+          name: 'Global Trading Academy',
           email: 'welcomeajaykumar007@gmail.com',
         },
         to: [{ email: notificationEmail }],

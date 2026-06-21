@@ -76,7 +76,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-4 text-center text-sm text-white/50 sm:flex-row lg:px-8">
-          <p>© 2021 National Trading Academy. All rights reserved.</p>
+          <p>© 2019 Global Trading Academy. All rights reserved.</p>
           <p>Educational purposes only. Trading involves risk.</p>
         </div>
       </div>

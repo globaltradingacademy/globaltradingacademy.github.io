@@ -127,7 +127,7 @@ export default function ContactForm() {
             value={form.phone}
             onChange={(e) => updateField('phone', e.target.value)}
             className="w-full rounded-xl border border-gray-200 px-4 py-3 pl-28 text-sm text-navy outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
-            placeholder="9876543210"
+            placeholder="9032227132"
             autoComplete="tel"
           />
         </div>

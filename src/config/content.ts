@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: 'National Trading Academy',
+  name: 'Global Trading Academy',
   tagline: 'Master the Markets with Confidence',
-  phone: '+91 98765 43210',
-  email: 'hello@tradeproacademy.com',
+  phone: '+91 90322 27132',
+  email: 'info@globaltradingacademy.com',
   whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '919876543210',
   address: '123 Finance Tower, Mumbai, India',
 }
@@ -29,10 +29,10 @@ export const heroContent = {
   subtext:
     'Join thousands of students who transformed their financial journey with our expert-led courses, live market sessions, and hands-on mentorship.',
   ctaText: 'Enroll Now',
-  image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
+  image: '/sharoof.png',
   badges: [
-    { text: '12+ Years of Experience', position: 'top-left' as const },
-    { text: '25,000+ Students Trained', position: 'bottom-right' as const },
+    { text: '7+ Years of Experience', position: 'top-left' as const },
+    { text: '4000+ Students Trained', position: 'bottom-right' as const },
   ],
 }
 
@@ -168,9 +168,9 @@ export const testimonials = [
     role: 'Software Engineer turned Trader',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
     shortQuote:
-      'National Trading Academy completely changed my approach to the markets. The practical sessions helped me build confidence...',
+      'Global Trading Academy completely changed my approach to the markets. The practical sessions helped me build confidence...',
     fullQuote:
-      'National Trading Academy completely changed my approach to the markets. The practical sessions helped me build confidence to trade independently. Within 6 months, I was consistently profitable and even quit my day job to trade full-time. The mentorship program is unmatched.',
+      'Global Trading Academy completely changed my approach to the markets. The practical sessions helped me build confidence to trade independently. Within 6 months, I was consistently profitable and even quit my day job to trade full-time. The mentorship program is unmatched.',
   },
   {
     id: 2,

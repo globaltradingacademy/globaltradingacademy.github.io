@@ -1,9 +1,32 @@
+import { useEffect, useRef, useState } from 'react'
 import { heroContent } from '../config/content'
 import CTAButton from '../components/CTAButton'
 import SectionTag from '../components/SectionTag'
 
 export default function HeroSection() {
   const { tag, headline, underlineIndex, subtext, ctaText, image, badges } = heroContent
+  const [isRevealed, setIsRevealed] = useState(false)
+  const imageRef = useRef<HTMLImageElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsRevealed(true)
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section className="bg-gray-light px-4 py-12 lg:px-8 lg:py-20">
@@ -27,7 +50,12 @@ export default function HeroSection() {
 
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
           <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={image} alt="Students learning trading" className="aspect-[4/3] w-full object-cover" />
+            <img
+              ref={imageRef}
+              src={image}
+              alt="Students learning trading"
+              className={`aspect-[4/3] w-full object-cover ${isRevealed ? 'reveal-from-bottom' : ''}`}
+            />
           </div>
           {badges.map((badge) => (
             <div

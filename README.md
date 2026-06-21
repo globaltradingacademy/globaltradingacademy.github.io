@@ -1,4 +1,4 @@
-# National Trading Academy — Trading/Course Marketing Website
+# Global Trading Academy — Trading/Course Marketing Website
 
 A mobile-first React marketing site for a trading academy with lead capture via Firebase Firestore, email notifications via Cloud Functions, and a protected admin dashboard.
 
@@ -177,4 +177,4 @@ Update arrays and strings there — no component changes needed for most content
 
 ## License
 
-Private — for National Trading Academy use.
+Private — for Global Trading Academy use.

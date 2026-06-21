@@ -74,7 +74,7 @@ exports.onLeadCreated = functions.firestore
     }
     const transporter = nodemailer_1.default.createTransport(smtpConfig);
     const html = `
-      <h2>New Lead — National Trading Academy</h2>
+      <h2>New Lead — Global Trading Academy</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px;">
         <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #eee;">${lead.name}</td></tr>
         <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #eee;">${lead.phone}</td></tr>
@@ -86,7 +86,7 @@ exports.onLeadCreated = functions.firestore
     `;
     try {
         await transporter.sendMail({
-            from: `"National Trading Academy" <${smtpConfig.auth.user}>`,
+            from: `"Global Trading Academy" <${smtpConfig.auth.user}>`,
             to: notificationEmail,
             subject: `New Lead: ${lead.name} — ${lead.course}`,
             html,
