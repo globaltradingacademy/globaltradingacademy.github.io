@@ -41,11 +41,10 @@ jobs:
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          publish_dir: ./dist
-          destination_dir: .
-          github_token: ${{ secrets.PAT }}
-          publish_branch: gh-pages
-          force_orphan: true
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
