@@ -47,8 +47,7 @@ jobs:
           publish_dir: ./dist
           destination_dir: .
           github_token: ${{ secrets.PAT }}
-          publish_branch: main
-          force_orphan: false
+          publish_branch: gh-pages
+          force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy to GitHub Pages'
