@@ -48,3 +48,5 @@ jobs:
           destination_dir: .
           github_token: ${{ secrets.PAT }}
           publish_branch: gh-pages
+          force_orphan: true
+          cname: globaltradingacademy.github.io
