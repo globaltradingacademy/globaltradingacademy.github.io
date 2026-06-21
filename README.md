@@ -112,6 +112,22 @@ npm run build
 firebase deploy --only Hosting
 ```
 
+### Deploy frontend to GitHub Pages
+
+1. Install dependencies if not already installed:
+
+```bash
+npm install
+```
+
+2. Deploy the production build:
+
+```bash
+npm run deploy:gh-pages
+```
+
+This publishes `dist/` to the `gh-pages` branch.
+
 ## Pages
 
 | Route | Description |
