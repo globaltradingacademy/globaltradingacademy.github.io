@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <!--
+    This HTML entry is intended for Vite dev mode only.
+    Do not serve this file directly from a static host without building first.
+    For development use: npm run dev
+    For previewing production output use: npm run build && npm run preview
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.jpeg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Global Trading Academy | Learn Trading & Investing</title>
+    <script type="module" crossorigin src="/assets/index.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Prevent the raw dev entry from being loaded directly on production hosts.
+      const moduleScript = document.querySelector('script[type="module"][src="/src/main.tsx"]');
+      const isViteDevHost = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') && location.port === '5173';
+      if (moduleScript && !isViteDevHost) {
+        moduleScript.remove();
+        const warning = document.createElement('div');
+        warning.style.cssText = 'min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:#0f172a;color:#e2e8f0;font-family:sans-serif;text-align:center;';
+        warning.innerHTML = `
+          <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0 0 16px;">Wrong file served</h1>
+          <p style="max-width:36rem;margin:0 0 12px;line-height:1.6;">This repository root page is the Vite development entry and must not be served directly in production.</p>
+          <p style="max-width:36rem;margin:0;line-height:1.6;">Use <code style="background:#1e293b;color:#f8fafc;padding:4px 8px;border-radius:4px;">npm run dev</code> for local development, or build and deploy the <code style="background:#1e293b;color:#f8fafc;padding:4px 8px;border-radius:4px;">dist/</code> folder for production.</p>
+        `;
+        document.body.prepend(warning);
+      }
+    </script>
+  </body>
+</html>
