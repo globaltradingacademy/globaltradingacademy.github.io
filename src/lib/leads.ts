@@ -12,6 +12,12 @@ import { db, firebaseReady } from './firebase'
 import type { Lead, LeadFormData, LeadStatus } from '../types/lead'
 
 export async function submitLead(formData: LeadFormData): Promise<void> {
+  console.log('submitLead called', {
+    firebaseReady,
+    VITE_FIREBASE_API_KEY: import.meta.env.VITE_FIREBASE_API_KEY ?? null,
+    VITE_FIREBASE_PROJECT_ID: import.meta.env.VITE_FIREBASE_PROJECT_ID ?? null,
+  })
+
   if (!firebaseReady || !db) {
     throw new Error('Firebase is not configured. Please set your environment variables.')
   }
