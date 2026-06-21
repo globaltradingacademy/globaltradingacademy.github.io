@@ -51,6 +51,8 @@ npm run dev
 
 Open the URL shown in the terminal (typically `http://localhost:5173`).
 
+> Note: The root `index.html` is the Vite dev entry and loads `src/main.tsx` directly. Do not serve the project root as a static website without first building it.
+
 ### 4. Build for production
 
 ```bash
