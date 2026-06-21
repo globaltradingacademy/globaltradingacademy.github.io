@@ -74,17 +74,17 @@ export default function CTAButton({
     </button>
   )
 
-  const linkElement = (
+  const linkElement = to ? (
     <Link to={to} className={classes}>
       {children}
     </Link>
-  )
+  ) : null
 
-  const anchorElement = (
+  const anchorElement = href ? (
     <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
-  )
+  ) : null
 
   const content = to ? linkElement : href ? anchorElement : buttonElement
 

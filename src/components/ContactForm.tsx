@@ -5,6 +5,7 @@ import CTAButton from './CTAButton'
 
 interface FormState {
   name: string
+  email: string
   countryCode: string
   phone: string
   city: string
@@ -15,6 +16,7 @@ interface FormState {
 
 interface FormErrors {
   name?: string
+  email?: string
   phone?: string
   city?: string
   occupation?: string
@@ -23,6 +25,7 @@ interface FormErrors {
 
 const initialForm: FormState = {
   name: '',
+  email: '',
   countryCode: '+91',
   phone: '',
   city: '',
@@ -34,6 +37,8 @@ const initialForm: FormState = {
 function validate(form: FormState): FormErrors {
   const errors: FormErrors = {}
   if (!form.name.trim()) errors.name = 'Name is required'
+  if (!form.email.trim()) errors.email = 'Email is required'
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errors.email = 'Enter a valid email address'
   if (!form.phone.trim()) errors.phone = 'Phone number is required'
   else if (!(/^\d{7,15}$/).test(form.phone.replace(/\s/g, ''))) errors.phone = 'Enter a valid phone number'
   if (!form.city.trim()) errors.city = 'City is required'
@@ -66,6 +71,7 @@ export default function ContactForm() {
     try {
       await submitLead({
         name: form.name.trim(),
+        email: form.email.trim(),
         countryCode: form.countryCode,
         phone: form.phone.replace(/\s/g, ''),
         city: form.city.trim(),
@@ -73,7 +79,7 @@ export default function ContactForm() {
         course: form.course,
         message: form.message.trim(),
       })
-      setFeedback({ type: 'success', message: 'Thank you! Our team will contact you shortly.' })
+      setFeedback({ type: 'success', message: 'Thank you! We received your inquiry and will reach out soon.' })
       setForm(initialForm)
     } catch (error) {
       setFeedback({
@@ -103,6 +109,22 @@ export default function ContactForm() {
           placeholder="Your full name"
         />
         { errors.name && <p className="mt-1 text-xs text-red-500">{ errors.name}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-navy">
+          Email *
+        </label>
+        <input
+          id="email"
+          type="email"
+          value={form.email}
+          onChange={(e) => updateField('email', e.target.value)}
+          className={inputClass}
+          placeholder="you@example.com"
+          autoComplete="email"
+        />
+        { errors.email && <p className="mt-1 text-xs text-red-500">{ errors.email}</p>}
       </div>
 
       <div>

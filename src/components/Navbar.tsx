@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, Phone, TrendingUp, X } from 'lucide-react'
+import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 import { courses, navLinks, siteConfig } from '../config/content'
 import CTAButton from './CTAButton'
 

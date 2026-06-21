@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Phone, TrendingUp } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { footerLinks, siteConfig } from '../config/content'
 
 export default function Footer() {
