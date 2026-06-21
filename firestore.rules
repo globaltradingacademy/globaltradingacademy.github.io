@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /leads/{leadId} {
+      // Anyone can create a lead (contact form submission)
+      allow create: if request.resource.data.keys().hasAll([
+          'name', 'phone', 'city', 'occupation', 'course', 'message', 'status'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.phone is string
+        && request.resource.data.city is string
+        && request.resource.data.occupation is string
+        && request.resource.data.course is string
+        && request.resource.data.message is string
+        && request.resource.data.status == 'new';
+
+      // Only authenticated admin users can read and update leads
+      allow read, update: if request.auth != null;
+
+      // No deletes from client
+      allow delete: if false;
+    }
+  }
+}
