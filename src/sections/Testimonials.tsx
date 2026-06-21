@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, Quote } from 'lucide-react'
+import { Quote } from 'lucide-react'
 import { testimonials } from '../config/content'
 import SectionTag from '../components/SectionTag'
 
@@ -42,20 +42,26 @@ export default function Testimonials() {
   return (
     <section className="bg-gray-light px-4 py-12 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col items-center text-center lg:flex-row lg:justify-between lg:text-left">
-          <div>
-            <SectionTag className="mb-4">Testimonials</SectionTag>
-            <h2 className="text-2xl font-bold text-navy lg:text-4xl">What Our Students Say</h2>
+        <div className="mb-10 text-center lg:text-left">
+          <SectionTag className="mb-4">Testimonials</SectionTag>
+          <h2 className="text-2xl font-bold text-navy lg:text-4xl">What Our Students Say</h2>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-3 lg:items-center">
+          <div className="lg:col-span-2 grid gap-8 lg:grid-cols-2">
+            {testimonials.map((t) => (
+              <TestimonialCard key={t.id} {...t} />
+            ))}
           </div>
-          <ArrowRight className="mt-4 hidden h-10 w-10 text-accent lg:block" />
-        </div>
-        <div className="grid gap-8 lg:grid-cols-2">
-          {testimonials.map((t) => (
-            <TestimonialCard key={t.id} {...t} />
-          ))}
-        </div>
-        <div className="mt-10 hidden justify-center lg:flex">
-          <img src={testimonials[0].image} alt="" className="h-48 w-48 rounded-full border-4 border-accent object-cover shadow-xl" />
+          <div className="lg:col-span-1 flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 rounded-full blur-3xl opacity-60 scale-110"></div>
+              <img
+                src="/testimonial.png"
+                alt="Testimonial"
+                className="relative h-[300px] w-[300px] lg:h-[450px] lg:w-[450px] object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

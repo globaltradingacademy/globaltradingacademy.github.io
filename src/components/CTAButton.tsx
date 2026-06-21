@@ -1,4 +1,5 @@
 import { Link, type LinkProps } from 'react-router-dom'
+import { useRef, useState } from 'react'
 
 type CTAButtonVariant = 'solid' | 'outline'
 
@@ -21,6 +22,40 @@ const variants: Record<CTAButtonVariant, string> = {
   outline: 'border-2 border-accent text-accent bg-transparent hover:bg-accent hover:text-white',
 }
 
+function MagnetWrapper({ children, disabled }: { children: React.ReactNode; disabled?: boolean }) {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [transform, setTransform] = useState('')
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (disabled) return
+    const wrapper = wrapperRef.current
+    if (!wrapper) return
+
+    const rect = wrapper.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
+
+    // Magnet strength - adjust as needed
+    const strength = 0.3
+    setTransform(`translate(${x * strength}px, ${y * strength}px)`)
+  }
+
+  const handleMouseLeave = () => {
+    setTransform('')
+  }
+
+  return (
+    <div
+      ref={wrapperRef}
+      style={{ transform, display: 'inline-block' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </div>
+  )
+}
+
 export default function CTAButton({
   children,
   variant = 'solid',
@@ -33,25 +68,25 @@ export default function CTAButton({
 }: CTAButtonProps) {
   const classes = `${base} ${variants[variant]} ${className}`
 
-  if (to) {
-    return (
-      <Link to={to} className={classes}>
-        {children}
-      </Link>
-    )
-  }
-
-  if (href) {
-    return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    )
-  }
-
-  return (
+  const buttonElement = (
     <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )
+
+  const linkElement = (
+    <Link to={to} className={classes}>
+      {children}
+    </Link>
+  )
+
+  const anchorElement = (
+    <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  )
+
+  const content = to ? linkElement : href ? anchorElement : buttonElement
+
+  return <MagnetWrapper disabled={disabled}>{content}</MagnetWrapper>
 }

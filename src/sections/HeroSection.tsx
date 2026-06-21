@@ -32,10 +32,10 @@ export default function HeroSection() {
     <section className="bg-gray-light px-4 py-12 lg:px-8 lg:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <SectionTag className="mb-4">{tag}</SectionTag>
+          <SectionTag className="mb-8 text-lg px-6 py-2">{tag}</SectionTag>
           <h1 className="mb-6 text-3xl font-extrabold leading-tight text-navy sm:text-4xl lg:text-5xl">
             {headline.map((line, i) => (
-              <span key={line} className="block">
+              <span key={line} className="inline">
                 {i === underlineIndex ? (
                   <span className="underline decoration-accent decoration-4 underline-offset-4">{line}</span>
                 ) : (
@@ -45,18 +45,16 @@ export default function HeroSection() {
             ))}
           </h1>
           <p className="mb-8 max-w-lg text-base leading-relaxed text-gray-600">{subtext}</p>
-          <CTAButton to="/contact">{ctaText}</CTAButton>
+          <CTAButton to="/contact" className="px-8 py-4 text-sm">{ctaText}</CTAButton>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img
-              ref={imageRef}
-              src={image}
-              alt="Students learning trading"
-              className={`aspect-[4/3] w-full object-cover ${isRevealed ? 'reveal-from-bottom' : ''}`}
-            />
-          </div>
+        <div className="relative mx-auto w-full max-w-sm lg:max-w-sm">
+          <img
+            ref={imageRef}
+            src={image}
+            alt="Students learning trading"
+            className={`aspect-[3/4] w-full object-cover ${isRevealed ? 'reveal-from-bottom' : ''}`}
+          />
           {badges.map((badge) => (
             <div
               key={badge.text}

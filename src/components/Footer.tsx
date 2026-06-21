@@ -9,9 +9,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                <TrendingUp className="h-5 w-5" />
-              </div>
+              <img src="/logo.jpeg" alt="Global Trading Academy" className="h-10 w-10 rounded-lg object-contain" />
               <span className="text-lg font-bold">{siteConfig.name}</span>
             </div>
             <ul className="space-y-3 text-sm text-white/70">

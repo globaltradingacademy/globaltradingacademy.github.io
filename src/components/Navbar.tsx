@@ -26,10 +26,8 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy text-white">
-              <TrendingUp className="h-5 w-5" />
-            </div>
-            <span className="text-lg font-bold text-navy">{siteConfig.name}</span>
+              <img src="/logo.jpeg" alt="Global Trading Academy" className="h-10 w-10 rounded-lg object-contain" />
+              <span className="text-lg font-bold text-navy">{siteConfig.name}</span>
           </Link>
 
           <nav className="hidden items-center gap-6 lg:flex">
@@ -96,7 +94,10 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} aria-hidden />
           <div className="absolute right-0 top-0 flex h-full w-[min(320px,85vw)] flex-col bg-white shadow-xl">
             <div className="flex items-center justify-between border-b px-4 py-4">
-              <span className="font-bold text-navy">{siteConfig.name}</span>
+              <div className="flex items-center gap-2">
+                <img src="/logo.jpeg" alt="Global Trading Academy" className="h-8 w-8 rounded-lg object-contain" />
+                <span className="font-bold text-navy">{siteConfig.name}</span>
+              </div>
               <button type="button" onClick={() => setMobileOpen(false)} aria-label="Close menu">
                 <X className="h-6 w-6" />
               </button>

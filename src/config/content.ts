@@ -23,12 +23,11 @@ export const courses = [
 ]
 
 export const heroContent = {
-  tag: "India's Leading Trading Academy",
-  headline: ['Learn to Trade', 'Like a Pro', 'From Experts'],
+  tag: 'తెలుగు లో',
+  headline: ['Learn ', 'Stock Market', ' From Zero'],
   underlineIndex: 1,
-  subtext:
-    'Join thousands of students who transformed their financial journey with our expert-led courses, live market sessions, and hands-on mentorship.',
-  ctaText: 'Enroll Now',
+  subtext: 'Start Your Successful Stock Market Journey In Our Institute!',
+  ctaText: 'ENROLL NOW',
   image: '/sharoof.png',
   badges: [
     { text: '7+ Years of Experience', position: 'top-left' as const },
